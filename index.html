@@ -2,10 +2,11 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Сайты на Tilda, вариант 1</title>
 </head>
 <body>
-<title>Сайты на Tilda, вариант 1</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@300;400;500&family=Onest:wght@300;400;500&display=swap">
 <style>
@@ -32,7 +33,13 @@ a{color:inherit}
 .link{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font:400 15px var(--body);color:var(--ink);padding-bottom:4px;background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat;transition:background-size .4s ease,color .3s}
 .link:hover{color:var(--blue);background-size:0 1px;background-position:100% 100%}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:16px 28px;border-radius:999px;background:var(--blue);color:#fff;font:400 15px/1 var(--body);text-decoration:none;border:0;cursor:pointer;transition:background .3s ease,transform .3s ease}
-.btn:hover{background:var(--blue-deep);transform:translateY(-2px)}
+.btn{position:relative;overflow:hidden;isolation:isolate;transition:background .3s ease,transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease}
+.btn::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.4) 50%,transparent 65%);transform:translateX(-130%)}
+.btn:hover,.btn:focus-visible{background:var(--blue-deep);transform:translateY(-3px);box-shadow:0 16px 30px -14px rgba(31,49,144,.6)}
+.btn:hover::after,.btn:focus-visible::after{transform:translateX(130%);transition:transform .85s cubic-bezier(.2,.8,.2,1)}
+.btn:active{transform:translateY(0) scale(.97);box-shadow:0 6px 14px -8px rgba(31,49,144,.5);transition-duration:.12s}
+.btn .arr{transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.btn:hover .arr{transform:translate(5px,-5px) scale(1.1)}
 .arr{display:inline-block;transition:transform .3s ease}
 a:hover .arr,button:hover .arr{transform:translate(3px,-3px)}
 a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
@@ -141,7 +148,8 @@ form{display:grid;gap:26px;min-width:0}
 .chips input:checked+label{background:#fff;color:var(--blue)}
 .chips input:focus-visible+label{outline:2px solid #fff;outline-offset:3px}
 .sheet.blue .btn{background:#fff;color:var(--blue);justify-self:start}
-.sheet.blue .btn:hover{background:#E6EAFB}
+.sheet.blue .btn:hover,.sheet.blue .btn:focus-visible{background:#E6EAFB;box-shadow:0 16px 30px -14px rgba(10,20,80,.55)}
+.sheet.blue .btn::after{background:linear-gradient(105deg,transparent 35%,rgba(47,73,200,.16) 50%,transparent 65%)}
 .fine{font-size:12px;color:#AFBAEB}
 .done{border:1px solid rgba(255,255,255,.4);border-radius:12px;padding:16px;color:#fff}
 
